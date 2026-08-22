@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="دستیار رشد کسب‌وکار برای پذیرندگان زرین‌پال">
+  <title>دستیار رشد زرین‌پال</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="دستیار رشد زرین‌پال"><span class="brand-mark" aria-hidden="true">Z</span><span><strong>دستیار رشد</strong><small>زرین‌پال</small></span></a>
+      <div class="merchant-control"><label for="merchant-select">کسب‌وکار</label><select id="merchant-select" disabled><option>در حال دریافت…</option></select></div>
+    </header>
+    <main>
+      <section id="loading-state" class="state-panel" aria-live="polite"><span class="spinner" aria-hidden="true"></span><p>در حال آماده‌کردن پیشنهادهای رشد…</p></section>
+      <section id="error-state" class="state-panel hidden" role="alert"><span class="state-icon">!</span><h1>اطلاعات دریافت نشد</h1><p id="error-message">اتصال را بررسی کنید و دوباره تلاش کنید.</p><button id="retry-button" type="button">تلاش دوباره</button></section>
+      <div id="dashboard" class="dashboard hidden">
+        <section class="welcome" aria-labelledby="page-title">
+          <div><p class="eyebrow">خلاصه‌ای برای تصمیم امروز</p><h1 id="page-title">برای رشد کسب‌وکارتان از اینجا شروع کنید</h1><p id="briefing" class="lead">مهم‌ترین فرصت‌ها از روی وضعیت پرداخت‌های شما اولویت‌بندی شده‌اند.</p><p id="data-period" class="data-period">بازه داده در حال دریافت است…</p></div>
+          <div class="score-card" aria-labelledby="score-label"><div class="score-ring" id="score-ring"><strong id="growth-score">—</strong><span>از ۱۰۰</span></div><div><p id="score-label">امتیاز فرصت</p><strong id="score-status">در حال محاسبه</strong><button class="text-button" type="button" data-toggle="score-explanation" aria-expanded="false">این امتیاز چیست؟</button></div></div>
+        </section>
+        <section id="score-explanation" class="explanation-banner hidden"><strong>امتیاز فرصت چگونه ساخته شده است؟</strong><p id="score-meaning">این امتیاز فقط از داده‌های پرداخت همین پذیرنده محاسبه می‌شود.</p><p id="score-calculation" class="calculation-copy"></p></section>
+        <div id="refresh-status" class="refresh-status hidden" role="status"><span class="mini-spinner" aria-hidden="true"></span>در حال به‌روزرسانی پیشنهادها…</div>
+        <section class="opportunities" aria-labelledby="opportunities-title">
+          <div class="section-heading"><div><p class="eyebrow">اولویت‌های پیشنهادی</p><h2 id="opportunities-title">فرصت‌های مهم برای اقدام</h2></div><span id="opportunity-count" class="count-badge">—</span></div>
+          <div id="opportunity-list" class="opportunity-list"></div>
+          <div id="opportunity-empty" class="empty-state hidden"><strong>فعلاً اقدام فوری پیدا نشد</strong><p>داده موجود از آستانه‌های بررسی عبور نکرده است؛ این نتیجه به معنی تضمین سلامت کامل کسب‌وکار نیست.</p></div>
+        </section>
+        <section class="summary-section" aria-labelledby="summary-title"><div class="section-heading"><div><p class="eyebrow">در یک نگاه</p><h2 id="summary-title">خلاصه عملکرد</h2></div></div><div class="kpi-grid"><article class="kpi"><span>فروش موفق</span><strong id="verified-gmv">—</strong><small>ریال</small></article><article class="kpi"><span>موفقیت پرداخت</span><strong id="conversion-rate">—</strong><small id="payment-count">—</small></article><article class="kpi"><span>مبلغ در معرض ریسک</span><strong id="at-risk-gmv">—</strong><small>درآمد ازدست‌رفته قطعی نیست</small></article></div></section>
+        <section class="chart-card" aria-labelledby="chart-title"><div class="chart-heading"><div><p class="eyebrow">روند فروش</p><h2 id="chart-title">مبلغ پرداخت‌های موفق</h2></div><strong id="chart-total">—</strong></div><div id="sales-chart" class="chart" role="img" aria-label="نمودار روند مبلغ پرداخت‌های موفق"></div><div id="chart-empty" class="chart-empty hidden">داده کافی برای نمایش روند وجود ندارد.</div></section>
+        <section class="ask-card" aria-labelledby="ask-title"><div><p class="eyebrow">درباره پیشنهادها بپرسید</p><h2 id="ask-title">یک نکته برایتان روشن نیست؟</h2><p>پاسخ فقط بر اساس داده‌ها و پیشنهادهای همین صفحه ارائه می‌شود.</p></div><form id="ai-form"><label class="sr-only" for="ai-question">سؤال شما</label><div class="ask-row"><input id="ai-question" maxlength="1000" placeholder="مثلاً چرا این فرصت مهم است؟" required><button id="ai-submit" type="submit">بپرس</button></div></form><div id="ai-answer" class="ai-answer hidden" aria-live="polite"></div><p id="ai-error" class="ai-error hidden" role="alert"></p></section>
+      </div>
+    </main>
+    <footer>هر خرید فقط یک‌بار شمرده می‌شود؛ تلاش دوباره آمار را به‌صورت مصنوعی افزایش نمی‌دهد.</footer>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>
