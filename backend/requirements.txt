@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+pandas
+pyarrow
+openai>=1.66.0
