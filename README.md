@@ -49,7 +49,7 @@ The generated Parquet file is also **not committed to the repository** and can a
 
 ---
 
-## What judges should try
+## Quick Start
 
 1. Place the challenge dataset in `data/other-challenge_data.csv.gz`.
 2. Run `python backend/prepare_data.py`.
